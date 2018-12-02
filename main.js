@@ -1,23 +1,32 @@
+//retrieve canvas
+var canvas = document.getElementById('canvas');
+context = canvas.getContext('2d');
 
-var canvas = document.getElementById('canvas'),
-  context = canvas.getContext('2d');
+//create variables
 
-make_base();
+//run functions
+draw_background();
+pipes();
 
-function make_base() {
-  base_image = new Image();
-  base_image.src = 'assets/background.png';
-  base_image.onload = function () {
-    context.drawImage(base_image, 0, 0);
+function draw_background() {
+  //create and draw background image 
+  background_image = new Image();
+  background_image.src = 'assets/background.png';
+  background_image.onload = function () {
+    context.drawImage(background_image, 0, 0);
   }
 }
 
-make_base2();
-
-function make_base2() {
-  base_image2 = new Image();
-  base_image2.src = 'assets/bird.png';
-  base_image2.onload = function () {
-    context.drawImage(base_image2, 0, 0);
+function pipes() {
+  //create and draw pipe images
+  pipeNorth_image = new Image();
+  pipeNorth_image.src = 'assets/pipeNorth.png';
+  pipeNorth_image.onload = function () {
+    context.drawImage(pipeNorth_image, 110, 0); //x and y axis
+  }
+  pipeSouth_image = new Image();
+  pipeSouth_image.src = 'assets/pipeSouth.png';
+  pipeSouth_image.onload = function () {
+    context.drawImage(pipeSouth_image, 0, 0); //x and y axis
   }
 }
