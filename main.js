@@ -1,22 +1,23 @@
-var canvs = document.getElementById("canvas");
-var contxt = canvs.getContext("2d");
 
-//Load images
-var bird = new Image();
-var background = new Image();
-var foreground = new Image();
-var pipeNorth = new Image();
-var pipeSouth = new Image();
+var canvas = document.getElementById('canvas'),
+  context = canvas.getContext('2d');
 
-bird.src = "assets/bird.png";
-background.src = "assets/background.png";
-foreground.src = "assets/foreground.png";
-pipeNorth.src = "assets/pipeNorth.png";
-pipeSouth.src = "assets/pipeSouth.png";
+make_base();
 
-
-function draw() {
-  contxt.drawImage(background, 0, 0);
+function make_base() {
+  base_image = new Image();
+  base_image.src = 'assets/background.png';
+  base_image.onload = function () {
+    context.drawImage(base_image, 0, 0);
+  }
 }
 
-draw();
+make_base2();
+
+function make_base2() {
+  base_image2 = new Image();
+  base_image2.src = 'assets/bird.png';
+  base_image2.onload = function () {
+    context.drawImage(base_image2, 0, 0);
+  }
+}
