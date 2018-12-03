@@ -5,11 +5,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var canvas = document.getElementById('canvas');
   context = canvas.getContext('2d');
 
-  //run functions
-  drawBackground();
-  drawPipes();
-  drawForeground();
-  drawBird();
+  //run all functions
+  function runAll() {
+    drawBackground(); //1st
+    drawPipes(); //2nd
+    drawForeground(); //3rd
+    drawBird(); //4th
+    requestAnimationFrame(runAll); //allows you to execute code on the next available screen repaint
+  }
+  runAll(); //run all functions in set order
 
   //*********************************************************************************************************************
   // Background properties
@@ -19,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //create and draw background image 
     backgroundImage = new Image();
     backgroundImage.src = 'assets/background.png';
-    backgroundImage.onload = function () {
-      context.drawImage(backgroundImage, 0, 0);
+    backgroundImage.onload = function () { //waits for image to load then continues to next stage
+      context.drawImage(backgroundImage, 0, 0); //next stage is to draw and set axis 
     }
   }
 
@@ -33,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     foregroundImage = new Image();
     foregroundImage.src = 'assets/foreground.png';
     foregroundImage.onload = function () {
-      context.drawImage(foregroundImage, 0, 400);
+      context.drawImage(foregroundImage, 0, 400); //x and y axis
     }
   }
 
@@ -60,16 +64,21 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   //*********************************************************************************************************************
-  // Background properties
+  // Bird properties
   //*********************************************************************************************************************
+
+  var birdXaxis = 10; //set x axis
+  var birdYaxis = 150; //set y axis
+  var gravity = 3; //set gravity
 
   function drawBird() {
     //create and draw background image 
     birdImage = new Image();
     birdImage.src = 'assets/bird.png';
     birdImage.onload = function () {
-      context.drawImage(birdImage, 0, 0);
+      context.drawImage(birdImage, birdXaxis, birdYaxis); //x and y axis
     }
+    birdYaxis += gravity; //only y axis requires gravity
   }
 
 });
