@@ -28,6 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
   bird = new Image();
   bird.src = 'assets/bird.png';
 
+  //
+  var pipe = [];
+  pipe[0] = {
+    x: canvas.width,
+    y: 0
+  };
+
   //*********************************************************************************************************************
   // Draw images to canvas
   //*********************************************************************************************************************
@@ -35,8 +42,22 @@ document.addEventListener('DOMContentLoaded', function () {
   //draw all images using a function
   function drawAll() {
     context.drawImage(background, 0, 0); //x and y axis 
-    context.drawImage(pipeNorth, 100, 0);
-    context.drawImage(pipeSouth, 100, 0 + constant); //y axis is determined by pipe variable
+
+    //
+    for (var i = 0; i < pipe.length; i++) {
+      constant = pipeNorth.height + pipeGap;
+      context.drawImage(pipeNorth, pipe[i].x, pipe[i].y); //
+      context.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant); //
+      pipe[i].x--;
+
+      if (pipe[i].x == 125) {
+        pipe.push({
+          x: canvas.width,
+          y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height
+        });
+      }
+    }
+
     context.drawImage(foreground, 0, canvas.height - foreground.height); //
     context.drawImage(bird, birdAxisX, birdAxisY); //x and y axis is determined by bird variables
     birdAxisY += gravity; //adds gravity to y axis of bird
@@ -55,10 +76,18 @@ document.addEventListener('DOMContentLoaded', function () {
   //bird variables
   var birdAxisX = 10; //set x axis
   var birdAxisY = 150; //set y axis
-  var gravity = 3; //set gravity
+  var gravity = 1; //set gravity
 
   //*********************************************************************************************************************
   // Move properties
   //*********************************************************************************************************************
+
+  document.addEventListener("keydown", checkKeyPressed, false); //event listener to check which key is pressed
+
+  function checkKeyPressed(e) { //keycodes: left = 37 || up = 38 || right = 39 || down = 40
+    if (e.keyCode == "38") { //if key code for UP-Arrow is pressed then move y axis of bird
+      birdAxisY -= 25;
+    }
+  }
 
 });
