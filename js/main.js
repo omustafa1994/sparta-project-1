@@ -9,22 +9,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // Create objects
   //*********************************************************************************************************************
 
-  //create and draw background image 
+  //create background image 
   background = new Image();
-  background.src = 'assets/background.png';
+  background.src = 'assets/background.png'; //source path
 
-  //create and draw pipe images
+  //create pipe images
   pipeNorth = new Image(); //north pipe
   pipeNorth.src = 'assets/pipeNorth.png';
 
   pipeSouth = new Image(); //south pipe
   pipeSouth.src = 'assets/pipeSouth.png';
 
-  //create and draw foreground image 
+  //create foreground image 
   foreground = new Image();
   foreground.src = 'assets/foreground.png';
 
-  //create and draw bird image 
+  //create bird image 
   bird = new Image();
   bird.src = 'assets/bird.png';
 
@@ -36,21 +36,21 @@ document.addEventListener('DOMContentLoaded', function () {
   function drawAll() {
     context.drawImage(background, 0, 0); //x and y axis 
     context.drawImage(pipeNorth, 100, 0);
-    context.drawImage(pipeSouth, 100, 0 + constant); //y axis is determined by var constant
-    context.drawImage(foreground, 0, canvas.height - foreground.height); //y axis is determined by var constant
-    context.drawImage(bird, birdAxisX, birdAxisY); //x and y axis
-    birdAxisY += gravity; //only y axis of bird will require gravity
-    requestAnimationFrame(drawAll); //allows you to execute code on the next available screen repaint
+    context.drawImage(pipeSouth, 100, 0 + constant); //y axis is determined by pipe variable
+    context.drawImage(foreground, 0, canvas.height - foreground.height); //
+    context.drawImage(bird, birdAxisX, birdAxisY); //x and y axis is determined by bird variables
+    birdAxisY += gravity; //adds gravity to y axis of bird
+    requestAnimationFrame(drawAll); //executes code on the next available screen repaint
   }
-  drawAll(); //run all functions in a set order
+  drawAll(); //runs all functions in a set order
 
   //*********************************************************************************************************************
   // Game variables
   //*********************************************************************************************************************
 
   //pipe variables
-  var pipeGap = 100; //set distance between North and South pipes
-  var constant = pipeNorth.height + pipeGap; //the North pipe & pipe gap will determine where South pipe begins
+  var pipeGap = 100; //set distance between North pipe and South pipe
+  var constant = pipeNorth.height + pipeGap; //the North pipe and pipe gap will determine height of South pipe
 
   //bird variables
   var birdAxisX = 10; //set x axis
