@@ -56,11 +56,25 @@ document.addEventListener('DOMContentLoaded', function () {
           y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height //randomly generate y axis of North pipe 
         });
       }
-    }
 
+      //collision detection
+      if (birdAxisX + bird.width >= pipe[i].x && birdAxisX <= pipe[i].x + pipeNorth.width && (birdAxisY <= pipe[i].y + pipeNorth.height || birdAxisY + bird.height >= pipe[i].y + constant) || birdAxisY + bird.height >= canvas.height - foreground.height) { // compares x and y axis of the bird and the pipes to check for any overlap
+        location.reload(); // reload the page if there is an overlap
+      }
+
+      //scoreboard
+      if (pipe[i].x == 5) { //checks if pipe x axis passes the x axis of the bird (bird being on x axis of 5)
+        pointSound.play(); //play sound 
+        score++; //increment score by 1 
+      }
+    }
     context.drawImage(foreground, 0, canvas.height - foreground.height); //y axis places foreground 
     context.drawImage(bird, birdAxisX, birdAxisY); //x and y axis is determined by bird variables
     birdAxisY += gravity; //adds gravity to y axis of bird
+
+    context.font = "25px Verdana"; //text font style
+    context.fillText("Score : " + score, 10, 30); //x and y axis of text plus score
+
     requestAnimationFrame(drawAll); //executes code on the next available screen repaint
   }
   drawAll(); //runs all functions in a set order
@@ -77,6 +91,17 @@ document.addEventListener('DOMContentLoaded', function () {
   var birdAxisX = 10; //set x axis
   var birdAxisY = 150; //set y axis
   var gravity = 1; //set gravity
+
+  var score = 0; //set score
+
+  //*********************************************************************************************************************
+  // Audio files
+  //*********************************************************************************************************************
+
+  // var flySound = new Audio();
+  var pointSound = new Audio();
+  // var scoreSound = new Audio();
+  pointSound.src = 'audio/points.mp3';
 
   //*********************************************************************************************************************
   // Move properties
