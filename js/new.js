@@ -24,12 +24,17 @@ document.addEventListener('DOMContentLoaded', function () {
   foreground = new Image();
   foreground.src = 'assets/foreground.png';
 
+  //create and draw bird image 
+  bird = new Image();
+  bird.src = 'assets/bird.png';
+
   //draw all functions
   function drawAll() {
     context.drawImage(background, 0, 0);
     context.drawImage(pipeNorth, 100, 0); //x and y axis
     context.drawImage(pipeSouth, 100, 0 + constant); //x and y axis (y axis is determined by variable 'constant')
     context.drawImage(foreground, 0, canvas.height - foreground.height); //x and y axis 394
+    context.drawImage(bird, 10, 150); //x and y axis
     requestAnimationFrame(drawAll); //allows you to execute code on the next available screen repaint
   }
   drawAll(); //run all functions in set order
@@ -40,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var pipeGap = 100; //set distance between North and South pipes
   var constant = pipeNorth.height + pipeGap; //the North pipe & pipe gap will determine where South pipe begins
+  var gravity = 3; //set gravity
 
   //*********************************************************************************************************************
   // Foreground properties
