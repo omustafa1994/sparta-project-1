@@ -6,57 +6,49 @@ document.addEventListener('DOMContentLoaded', function () {
   context = canvas.getContext('2d');
 
   //*********************************************************************************************************************
-  // Variables
+  // Create and draw images
   //*********************************************************************************************************************
 
   //create and draw background image 
-  backgroundImage = new Image();
-  backgroundImage.src = 'assets/background.png';
+  background = new Image();
+  background.src = 'assets/background.png';
 
+  //create and draw pipe images
+  pipeNorth = new Image(); //north pipe
+  pipeNorth.src = 'assets/pipeNorth.png';
 
-  //run all functions
-  function runAll() {
-    drawBackground(); //1st
-    drawPipes(); //2nd
-    drawForeground(); //3rd
-    drawBird(); //4th
-    requestAnimationFrame(runAll); //allows you to execute code on the next available screen repaint
+  pipeSouth = new Image(); //south pipe
+  pipeSouth.src = 'assets/pipeSouth.png';
+
+  //create and draw foreground image 
+  foreground = new Image();
+  foreground.src = 'assets/foreground.png';
+
+  //draw all functions
+  function drawAll() {
+    context.drawImage(background, 0, 0);
+    context.drawImage(pipeNorth, 100, 0); //x and y axis
+    context.drawImage(pipeSouth, 100, 0 + constant); //x and y axis (y axis is determined by variable 'constant')
+    context.drawImage(foreground, 0, canvas.height - foreground.height); //x and y axis 394
+    requestAnimationFrame(drawAll); //allows you to execute code on the next available screen repaint
   }
-  runAll(); //run all functions in set order
+  drawAll(); //run all functions in set order
 
   //*********************************************************************************************************************
-  // Background properties
+  // Game variables
   //*********************************************************************************************************************
 
-  function drawBackground() {
-    //create and draw background image 
-    backgroundImage = new Image();
-    backgroundImage.src = 'assets/background.png';
-    backgroundImage.onload = function () { //waits for image to load then continues to next stage
-      context.drawImage(backgroundImage, 0, 0); //next stage is to draw and set axis 
-    }
-  }
+  var pipeGap = 100; //set distance between North and South pipes
+  var constant = pipeNorth.height + pipeGap; //the North pipe & pipe gap will determine where South pipe begins
 
   //*********************************************************************************************************************
   // Foreground properties
   //*********************************************************************************************************************
 
-  function drawForeground() {
-    //create and draw foreground image 
-    foregroundImage = new Image();
-    foregroundImage.src = 'assets/foreground.png';
-    foregroundImage.onload = function () {
-      context.drawImage(foregroundImage, 0, canvas.height - foregroundImage.height); //x and y axis 394
-    }
-  }
-
   //*********************************************************************************************************************
   // Pipes properties
   //*********************************************************************************************************************
 
-  //variables
-  var pipeGap = 100; //set distance between North and South pipes
-  var constant = pipeNorthImage.height + pipeGap; //the North pipe & pipe gap will determine where South pipe begins
   var pipe = []
 
   pipe[0] = {
