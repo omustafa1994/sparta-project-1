@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //create bird image 
   bird = new Image();
   // bird.src = 'assets/bird.png';
-  bird.src = 'assets/birdthree.png';
+  bird.src = 'assets/bird.png';
 
   //create pipe co-ordinates
   var pipe = []; //empty array 
@@ -69,11 +69,12 @@ document.addEventListener('DOMContentLoaded', function () {
         score++; //increment score by 1 
       }
     }
+
     context.drawImage(foreground, 0, canvas.height - foreground.height); //y axis places foreground at bottom of canvas
 
     context.drawImage(bird, birdAxisX, birdAxisY); //x and y axis is determined by bird variables
-    velocity += gravity; //adds gravity to y axis of bird
-    birdAxisY += velocity;
+    velocity += gravity; //
+    birdAxisY += velocity; //
 
     context.font = "25px Verdana"; //text font style
     context.fillText("Score : " + score, 10, 30); //x and y axis of text and score
@@ -81,6 +82,15 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(drawAll); //executes code on the next available screen repaint
   }
   drawAll(); //runs all functions in a set order
+
+  // if (score >= 1) {
+  //   pipe[i].x--; //decrement the x axis of the generated pipes (moving effect)
+  // } else if (score >= 2) {
+  //   pipe[i].x--; //decrement the x axis of the generated pipes (moving effect)
+  // } else if (score >= 3) {
+  //   pipe[i].x--; //decrement the x axis of the generated pipes (moving effect)
+  // }
+
 
   //*********************************************************************************************************************
   // Game variables
@@ -93,10 +103,11 @@ document.addEventListener('DOMContentLoaded', function () {
   //bird variables
   var birdAxisX = 10; //set x axis
   var birdAxisY = 150; //set y axis
+  // rotation = 0;
 
-  var gravity = 0.1; //set gravity
+  var gravity = 0.15; //set gravity
   var velocity = 0;
-  var lift = -2.5;
+  var lift = -4.5;
 
   var score = 0; //set score
 
@@ -125,4 +136,31 @@ document.addEventListener('DOMContentLoaded', function () {
   // New
   //*********************************************************************************************************************
 
+  // if (velocity >= lift) {
+  //   frame = 1;
+  //   rotation = Math.min(Math.PI / 2, this.rotation + 0.3);
+  // } else {
+  //   rotation = -0.3
+  // }
+
 });
+
+// Increase speed on score increase
+// Make start page, istructions, leaderboard and game area styling
+// leaderboard - local storage
+// flapping wings
+
+// setInterval(() => {
+//   setTimeout(() => {
+//     //flapup
+//   }, 1)
+//   setTimeout(() => {
+//     //noflap
+//   }, 10)
+//   setTimeout(() => {
+//     //flapdown
+//   }, 17)
+//   setTimeout(() => {
+//     //noflap
+//   }, 25)
+// }, 35)
