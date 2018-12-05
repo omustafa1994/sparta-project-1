@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //create bird image 
   bird = new Image();
-  bird.src = 'assets/bird.png';
+  // bird.src = 'assets/bird.png';
+  bird.src = 'assets/birdthree.png';
 
   //create pipe co-ordinates
   var pipe = []; //empty array 
@@ -69,8 +70,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
     context.drawImage(foreground, 0, canvas.height - foreground.height); //y axis places foreground at bottom of canvas
+
     context.drawImage(bird, birdAxisX, birdAxisY); //x and y axis is determined by bird variables
-    birdAxisY += gravity; //adds gravity to y axis of bird
+    velocity += gravity; //adds gravity to y axis of bird
+    birdAxisY += velocity;
 
     context.font = "25px Verdana"; //text font style
     context.fillText("Score : " + score, 10, 30); //x and y axis of text and score
@@ -90,7 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
   //bird variables
   var birdAxisX = 10; //set x axis
   var birdAxisY = 150; //set y axis
-  var gravity = 0.25; //set gravity
+
+  var gravity = 0.1; //set gravity
+  var velocity = 0;
+  var lift = -2.5;
 
   var score = 0; //set score
 
@@ -110,9 +116,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener("keydown", checkKeyPressed, false); //event listener checks which key is pressed
 
   function checkKeyPressed(e) { //keycodes: left = 37 || up = 38 || right = 39 || down = 40
-    if (e.keyCode == "38") { //if key code for UP-Arrow is pressed then move y axis of bird
-      birdAxisY -= 25; //makes bird go up (and not down) on y axis
+    if (e.keyCode == "38") { //if key code for SPACE is pressed then move y axis of bird
+      velocity += lift; //
     }
   }
+
+  //*********************************************************************************************************************
+  // New
+  //*********************************************************************************************************************
 
 });
