@@ -32,14 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
   start.src = 'assets/start.png';
 
   //*********************************************************************************************************************
-  // Variables
+  // Game variables
   //*********************************************************************************************************************
 
   //foreground variables
   var x1 = 0;
   var x2 = 288;
 
-  //date for animation
+  //timer for bird animation
   test = Date.now()
 
   function animate() {
@@ -77,26 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     context.drawImage(start, 50, 20);
-    animate();
-    requestAnimationFrame(drawAll); //executes code on the next available screen repaint
 
+    animate(); //run bird flap animation
+
+    requestAnimationFrame(drawAll); //executes code on the next available screen repaint
   }
   drawAll(); //runs all functions in a set order
 
 });
-
-    // 
-    // setInterval(() => {
-    //   setTimeout(() => {
-    //     bird
-    //   }, 100)
-    //   setTimeout(() => {
-    //     bird2
-    //   }, 200)
-    //   setTimeout(() => {
-    //     bird3
-    //   }, 300)
-    //   setTimeout(() => {
-    //     bird2
-    //   }, 400)
-    // }, 2)
