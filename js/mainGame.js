@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //create bird image 
   bird = new Image();
-  // bird.src = 'assets/bird.png';
-  bird.src = 'assets/bird.png';
+
+  bird.src = 'assets/bird1.png';
 
   //create pipe co-ordinates
   var pipe = []; //empty array 
@@ -130,11 +130,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  //*********************************************************************************************************************
+});
+
+//*********************************************************************************************************************
   // New
   //*********************************************************************************************************************
-
-});
 
 // Increase speed on score increase
 // Make start page, istructions, leaderboard and game area styling

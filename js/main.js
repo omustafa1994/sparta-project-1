@@ -20,14 +20,47 @@ document.addEventListener('DOMContentLoaded', function () {
   //create bird image 
   bird1 = new Image();
   bird1.src = 'assets/bird1.png';
-  // var bird = context.drawImage(bird1, 10, 150);
+  bird2 = new Image();
+  bird2.src = 'assets/bird2.png';
+  bird3 = new Image();
+  bird3.src = 'assets/bird3.png';
+  bird4 = new Image();
+  bird4.src = 'assets/bird4.png';
 
-  //
+  //create start image
   start = new Image();
   start.src = 'assets/start.png';
 
+  //*********************************************************************************************************************
+  // Variables
+  //*********************************************************************************************************************
+
+  //foreground variables
   var x1 = 0;
   var x2 = 288;
+
+  //date for animation
+  test = Date.now()
+
+  function animate() {
+    test2 = Date.now();
+    test3 = test2 - test
+
+    if (test3 > 300) {
+      context.drawImage(bird1, 10, 150);
+      if (test3 > 400) //creates delay of extra 100 milliseconds for bird animation loop
+        test = test2;
+    } else if (test3 > 200)
+      context.drawImage(bird2, 10, 150);
+    else if (test3 > 100)
+      context.drawImage(bird3, 10, 150);
+    else
+      context.drawImage(bird2, 10, 150);
+  }
+
+  //*********************************************************************************************************************
+  // Draw images to canvas
+  //*********************************************************************************************************************
 
   function drawAll() {
 
@@ -44,6 +77,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     context.drawImage(start, 50, 20);
+    animate();
+    requestAnimationFrame(drawAll); //executes code on the next available screen repaint
+
+  }
+  drawAll(); //runs all functions in a set order
+
+});
 
     // 
     // setInterval(() => {
@@ -60,9 +100,3 @@ document.addEventListener('DOMContentLoaded', function () {
     //     bird2
     //   }, 400)
     // }, 2)
-
-    requestAnimationFrame(drawAll); //executes code on the next available screen repaint
-  }
-  drawAll(); //runs all functions in a set order
-
-});
