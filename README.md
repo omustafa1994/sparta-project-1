@@ -10,7 +10,7 @@ This game is a remake of flappy bird using javascript and canvas. It consists of
 
 ### How to download
 1. Clone the Git repo
-2. pen the files and run index.html file
+2. Open the files and run index.html file
 3. You will now be able to play the game!
 
 #### You can view the page [https://omustafa1994.github.io/sparta-project-1/]()
