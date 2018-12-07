@@ -9,18 +9,17 @@ This game is a remake of flappy bird using javascript and canvas. It consists of
 * CSS
 
 ### How to download
-1. Clone repo and run live-server
-2. https://omustafa1994.github.io/sparta-project-1/
+1. Clone the Git repo
+2. pen the files and run index.html file
+3. You will now be able to play the game!
 
-(If its hosted on Github Pages then...)
-#### You can view the page [here]()
+#### You can view the page [here] https://omustafa1994.github.io/sparta-project-1/
 
 ### Challenges (you can include images and code block here)
-1. I can't seem to center the image and canvas with overlap
-2. issues with animation on second page
-3. issues with increased difficulty if more than two difficulty
-4. coffe image background moves on second page
+1. Difficulty to center the image and canvas with overlap
+2. Issues with animation of bird on second page
+3. Issues with increased difficulty if more than two difficulties
 
 ### Learning points
 1. I learned ways to get animation to work using the date.now method
-2. next time animate using sprite sheet 
+2. Note to self: next time animate using a sprite sheet 
