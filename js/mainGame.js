@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var canvas = document.getElementById('canvas');
   context = canvas.getContext('2d');
 
+  canvas.style = "position:absolute; left: 6.3%; width: 350px; margin-top: 79px;"; //canvas position
+
   //*********************************************************************************************************************
   // Create objects
   //*********************************************************************************************************************
@@ -36,8 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   //*********************************************************************************************************************
-  // Draw images to canvas
+  // Draw images to canvas {TO BE TESTED}
   //*********************************************************************************************************************
+  pipeSpeed = 1 // pipe speed
+  pipeDistance = 81 // pipe distance (needs to be odd!)
 
   //draw all images using a function
   function drawAll() {
@@ -48,13 +52,19 @@ document.addEventListener('DOMContentLoaded', function () {
       constant = pipeNorth.height + pipeGap; //determines height of South pipe
       context.drawImage(pipeNorth, pipe[i].x, pipe[i].y); //x and y axis of North pipe
       context.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant); //x and y axis of South pipe
-      pipe[i].x--; //decrement the x axis of the generated pipes (moving effect)
+      pipe[i].x = pipe[i].x - pipeSpeed; //decrement the x axis of the generated pipes (moving effect)
 
-      if (pipe[i].x == 115) { //creates distance between the generated pipes 
+      if (pipe[i].x == pipeDistance) { //creates distance between the generated pipes 
         pipe.push({
           x: canvas.width,
           y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height //randomly generate y axis of North pipe 
         });
+      }
+
+      //pipe speed and distance increase 
+      if (score >= 3) {
+        pipeSpeed = 2;
+        pipeDistance = 114; //(needs to be even!)
       }
 
       //collision detection
@@ -69,11 +79,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    context.drawImage(foreground, 0, canvas.height - foreground.height); //y axis places foreground at bottom of canvas
+    context.drawImage(foreground, 0, 400); //y axis places foreground at bottom of canvas
 
     context.drawImage(bird, birdAxisX, birdAxisY); //x and y axis is determined by bird variables
-    velocity += gravity; //
-    birdAxisY += velocity; //
+    velocity += gravity; //apply gravity to velocity
+    birdAxisY += velocity; //apply velocity to bird y axis
 
     context.font = "25px Verdana"; //text font style
     context.fillText("Score : " + score, 10, 30); //x and y axis of text and score
@@ -82,13 +92,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   drawAll(); //runs all functions in a set order
 
-  // if (score >= 1) {
-  //   pipe[i].x--; //decrement the x axis of the generated pipes (moving effect)
-  // } else if (score >= 2) {
-  //   pipe[i].x--; //decrement the x axis of the generated pipes (moving effect)
-  // } else if (score >= 3) {
-  //   pipe[i].x--; //decrement the x axis of the generated pipes (moving effect)
-  // }
 
   //*********************************************************************************************************************
   // Game variables
@@ -103,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var birdAxisY = 150; //set y axis
 
   var gravity = 0.15; //set gravity
-  var velocity = 0;
-  var lift = -4.5;
+  var velocity = 0; //set velocity 
+  var lift = -4.5; //set lift 
 
   var score = 0; //set score
 

@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var canvas = document.getElementById('canvas');
   context = canvas.getContext('2d');
 
+  canvas.style = "position:absolute; left: 6.3%; width: 350px; margin-top: 79px;"; //canvas position
+
   //*********************************************************************************************************************
   // Create objects
   //*********************************************************************************************************************
@@ -31,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
   start = new Image();
   start.src = 'assets/start.png';
 
+  //create instruction image
+  tap = new Image();
+  tap.src = 'assets/tap.png';
+
   //*********************************************************************************************************************
   // Game variables
   //*********************************************************************************************************************
@@ -46,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
     test2 = Date.now();
     test3 = test2 - test
 
-    if (test3 > 300) {
+    if (test3 > 300) { //every 100 miliseconds the bird changes image
       context.drawImage(bird1, 10, 150);
       if (test3 > 400) //creates delay of extra 100 milliseconds for bird animation loop
         test = test2;
@@ -66,17 +72,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     context.drawImage(background, 0, 0); //x and y axis 
 
-    context.drawImage(foreground, x1--, canvas.height - foreground.height);
-    context.drawImage(foreground, x2--, canvas.height - foreground.height);
+    context.drawImage(foreground, x1--, 400); //x axis scrolls constantly
+    context.drawImage(foreground, x2--, 400);
 
-    if (x1 < -288) {
+    if (x1 < -288) { //when first image has panned, start second image 
       x1 = 288;
     }
     if (x2 < -288) {
       x2 = 288;
     }
 
-    context.drawImage(start, 50, 20);
+    context.drawImage(start, 50, 20); //x and y axis 
+
+    context.drawImage(tap, 83, 170); //x and y axis 
 
     animate(); //run bird flap animation
 
