@@ -23,3 +23,4 @@ This game is a remake of flappy bird using javascript and canvas. It consists of
 
 ### Learning points
 1. I learned ways to get animation to work using the date.now method
+2. next time animate using sprite sheet 
