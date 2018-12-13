@@ -13,7 +13,7 @@ This game is a remake of flappy bird using javascript and canvas. It consists of
 2. Open the files and run index.html file
 3. You will now be able to play the game!
 
-#### You can view the page [https://omustafa1994.github.io/sparta-project-1/]()
+#### You can view the page [https://omustafa1994.github.io/sparta-project-1/]
 
 ### Challenges (you can include images and code block here)
 1. Difficulty to center the image and canvas with overlap
