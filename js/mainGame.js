@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-  //AFTER RUNNING LIVE-SERVER A PAGE REFRESH IS REQUIRED!
+  //THIS ALLOWS CONNECTION TO JAVASCRIPT FILE!
 
   //retrieve canvas
   var canvas = document.getElementById('canvas');
   context = canvas.getContext('2d');
 
-  canvas.style = "position:absolute; left: 6.3%; width: 350px; margin-top: 79px;"; //canvas position
+  // canvas.style = "position:absolute; left: 6.3%; width: 350px; margin-top: 79px;"; //canvas position
 
   //*********************************************************************************************************************
   // Create objects
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Draw images to canvas {TO BE TESTED}
   //*********************************************************************************************************************
   pipeSpeed = 1 // pipe speed
-  pipeDistance = 81 // pipe distance (needs to be odd!)
+  pipeDistance = 41 // pipe distance (needs to be odd!)
 
   //draw all images using a function
   function drawAll() {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
       //pipe speed and distance increase 
       if (score >= 3) {
         pipeSpeed = 2;
-        pipeDistance = 114; //(needs to be even!)
+        pipeDistance = 82; //(needs to be even!)
       }
 
       //collision detection
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener("keydown", checkKeyPressed, false); //event listener checks which key is pressed
 
   function checkKeyPressed(e) { //keycodes: left = 37 || up = 38 || right = 39 || down = 40
-    if (e.keyCode == "38") { //if key code for SPACE is pressed then move y axis of bird
+    if (e.keyCode == "32") { //if key code for SPACE is pressed then move y axis of bird
       velocity += lift; //
     }
   }

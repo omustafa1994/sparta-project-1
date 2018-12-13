@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-  //AFTER RUNNING LIVE-SERVER A PAGE REFRESH IS REQUIRED!
+  //THIS ALLOWS CONNECTION TO JAVASCRIPT FILE!
 
   //retrieve canvas
   var canvas = document.getElementById('canvas');
   context = canvas.getContext('2d');
 
-  canvas.style = "position:absolute; left: 6.3%; width: 350px; margin-top: 79px;"; //canvas position
+  // canvas.style = "position:absolute; left: 10%; width: 350px; margin-top: 79px;"; //canvas position
 
   //*********************************************************************************************************************
   // Create objects
@@ -42,25 +42,25 @@ document.addEventListener('DOMContentLoaded', function () {
   //*********************************************************************************************************************
 
   //foreground variables
-  var x1 = 0;
-  var x2 = 288;
+  var foregroundAxisX1 = 0;
+  var foregroundAxisX2 = 288; // canvas width 
 
   //timer for bird animation
-  test = Date.now()
+  dateBefore = Date.now()
 
   function animate() {
-    test2 = Date.now();
-    test3 = test2 - test
+    dateAfter = Date.now();
+    dateNow = dateAfter - dateBefore
 
-    if (test3 > 300) { //every 100 miliseconds the bird changes image
+    if (dateNow > 300) { //every 100 miliseconds the bird changes image
       context.drawImage(bird1, 10, 150);
-      if (test3 > 400) //creates delay of extra 100 milliseconds for bird animation loop
-        test = test2;
-    } else if (test3 > 200)
+      if (dateNow > 400) //creates delay of extra 100 milliseconds for smoother bird animation loop
+        dateBefore = dateAfter;
+    } else if (dateNow > 200) //every 100 miliseconds the bird changes image
       context.drawImage(bird2, 10, 150);
-    else if (test3 > 100)
+    else if (dateNow > 100) //every 100 miliseconds the bird changes image
       context.drawImage(bird3, 10, 150);
-    else
+    else //every 100 miliseconds the bird changes image
       context.drawImage(bird2, 10, 150);
   }
 
@@ -72,14 +72,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     context.drawImage(background, 0, 0); //x and y axis 
 
-    context.drawImage(foreground, x1--, 400); //x axis scrolls constantly
-    context.drawImage(foreground, x2--, 400);
+    context.drawImage(foreground, foregroundAxisX1--, 400); //x axis scrolls constantly
+    context.drawImage(foreground, foregroundAxisX2--, 400);
 
-    if (x1 < -288) { //when first image has panned, start second image 
-      x1 = 288;
+    if (foregroundAxisX1 < -288) { //when foreground image has panned, add another
+      foregroundAxisX1 = 288;
     }
-    if (x2 < -288) {
-      x2 = 288;
+    if (foregroundAxisX2 < -288) {
+      foregroundAxisX2 = 288;
     }
 
     context.drawImage(start, 50, 20); //x and y axis 
