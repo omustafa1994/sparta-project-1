@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var canvas = document.getElementById('canvas');
   context = canvas.getContext('2d');
 
-  // canvas.style = "position:absolute; left: 6.3%; width: 350px; margin-top: 79px;"; //canvas position
-
   //*********************************************************************************************************************
   // Create objects
   //*********************************************************************************************************************
@@ -41,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Draw images to canvas {TO BE TESTED}
   //*********************************************************************************************************************
   pipeSpeed = 1 // pipe speed
-  pipeDistance = 41 // pipe distance (needs to be odd!)
+  pipeDistance = 41 // pipe distance (needs to be odd?)
 
   //draw all images using a function
   function drawAll() {
@@ -61,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
-      //pipe speed and distance increase 
+      //pipe speed and distance difficulty increase
       if (score >= 3) {
         pipeSpeed = 2;
-        pipeDistance = 82; //(needs to be even!)
+        pipeDistance = 82; //(needs to be even?)
       }
 
       //collision detection
