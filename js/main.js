@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var canvas = document.getElementById('canvas');
   context = canvas.getContext('2d');
 
-  // canvas.style = "position:absolute; left: 10%; width: 350px; margin-top: 79px;"; //canvas position
-
   //*********************************************************************************************************************
   // Create objects
   //*********************************************************************************************************************
