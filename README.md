@@ -6,7 +6,6 @@ This game is a remake of flappy bird using javascript and canvas. It consists of
 ### Languages used
 * Javascript
 * HTML
-* CSS
 
 ### How to download
 1. Clone the Git repo
