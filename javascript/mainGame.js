@@ -60,7 +60,7 @@ function drawAll() {
     //pipe speed and distance difficulty increase
     if (score >= 8) {
       pipeSpeed = 2;
-      pipeDistance = 78; //(needs to be even?)
+      pipeDistance = 64; //(needs to be even?)
     }
 
     //collision detection
