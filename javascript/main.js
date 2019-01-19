@@ -78,7 +78,7 @@ function drawAll() {
   context.font = "25px Verdana"; //text font style
   context.fillText("Click anywhere", 40, 470); //x and y axis of text and score
   context.font = "10px Verdana"; //text font style
-  context.fillText("{ Sound warning }", 80, 490); //x and y axis of text and score
+  context.fillText("{ SOUND WARNING }", 80, 490); //x and y axis of text and score
   
   animate(); //run bird flap animation
   
