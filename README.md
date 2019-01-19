@@ -1,7 +1,7 @@
 # sparta-project-1
 
 ### Description
-This game is a remake of flappy bird using javascript and canvas. It consists of two pages, the first a main menu which when prompt will start up the main game. Here the user must press the space-bar and navigate through the pipes whilst avoiding them at all cost in order to achieve a high score. Can you reach a score of 8?
+This game is a remake of flappy bird using javascript and canvas. It consists of two pages, the first a main menu which when prompt will start up the main game. Here the user must press the space-bar and navigate through the pipes whilst avoiding them at all cost in order to achieve a high score. Can you reach a score of 10?
 
 ### Languages used
 * Javascript
