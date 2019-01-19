@@ -60,18 +60,18 @@ function drawAll() {
     //pipe speed and distance difficulty increase
     if (score >= 8) {
       pipeSpeed = 2;
-      pipeDistance = 64; //(needs to be even?)
+      pipeDistance = 56; //(needs to be even?)
+    }
+ 
+    //scoreboard
+    if (pipe[i].x == 20) { //checks if pipe x axis passes the x axis of the bird (bird being on x axis of 10)
+      pointSound.play(); //play MP3 sound 
+      score++; //increment score by 1 
     }
 
     //collision detection
     if (birdAxisX + bird.width >= pipe[i].x && birdAxisX <= pipe[i].x + pipeNorth.width && (birdAxisY <= pipe[i].y + pipeNorth.height || birdAxisY + bird.height >= pipe[i].y + constant) || birdAxisY + bird.height >= canvas.height - foreground.height) { // compares x and y axis of the bird and the pipes/the foreground to check for any overlap
       location.reload(); //reload the page if there is an overlap
-    }
- 
-    //scoreboard
-    if (pipe[i].x == 10) { //checks if pipe x axis passes the x axis of the bird (bird being on x axis of 10)
-      pointSound.play(); //play MP3 sound 
-      score++; //increment score by 1 
     }
   }
   
