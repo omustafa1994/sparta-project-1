@@ -1,4 +1,4 @@
-# sparta-project-1 (Now working on mobile devices)
+# sparta-project-1
 
 ### Description
 This game is a remake of flappy bird using javascript and canvas. It consists of two pages, the first a main menu which when prompt will start up the main game. Here the user must press the space-bar and navigate through the pipes whilst avoiding them at all cost in order to achieve a high score. Can you reach a score of 10?
@@ -11,8 +11,9 @@ This game is a remake of flappy bird using javascript and canvas. It consists of
 1. Clone the Git repo
 2. Open the files and run index.html file
 3. You will now be able to play the game!
+4. Or open link below on a mobile deivce!
 
-#### You can view the page here: https://omustafa1994.github.io/sparta-project-1/pages/main.html
+#### You can play the game here: https://omustafa1994.github.io/sparta-project-1/pages/main.html
 
 ### Challenges 
 1. Difficulty to center the image and canvas with overlap
