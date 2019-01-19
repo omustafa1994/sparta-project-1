@@ -118,10 +118,15 @@ pointSound.src = '../audio/points.mp3';
 // Move properties
 //*********************************************************************************************************************
 
-document.addEventListener("keydown", checkKeyPressed, false); //event listener checks which key is pressed
-
+//playable for desktop 
+document.addEventListener("keydown", checkKeyPressed, false); //event listener checks for key pressed
 function checkKeyPressed(e) { //keycodes: left = 37 || up = 38 || right = 39 || down = 40
   if (e.keyCode == "32") { //if key code for SPACE is pressed then move y axis of bird
     velocity += lift; //adds lift to the current velocity 
   }
+};
+
+//playable for mobile
+document.onclick = function checkKeyPressed() { //event listener checks for click pressed 
+  velocity += lift; //adds lift to the current velocity 
 };
