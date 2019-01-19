@@ -14,7 +14,7 @@ This game is a remake of flappy bird using javascript and canvas. It consists of
 
 #### You can view the page here: https://omustafa1994.github.io/sparta-project-1/pages/main.html
 
-### Challenges (you can include images and code block here)
+### Challenges 
 1. Difficulty to center the image and canvas with overlap
 2. Issues with animation of bird on second page
 3. Issues with increased difficulty if more than two difficulties
