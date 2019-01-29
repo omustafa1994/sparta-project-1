@@ -102,7 +102,7 @@ var birdAxisY = 150; //set y axis
 
 var gravity = 0.15; //set gravity
 var velocity = 0; //set velocity 
-var lift = -4.5; //set lift 
+var lift = -3.0; //set lift 
 
 var score = 0; //set score
 
